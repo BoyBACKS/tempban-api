@@ -1,0 +1,4 @@
+name: Tempban Api
+version: '${project.version}'
+main: net.boybacks.tempbanapi.Main
+api-version: 1.19

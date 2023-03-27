@@ -24,7 +24,7 @@ public class Main extends JavaPlugin {
     this.bans = new Bans(this);
 
     //this.getCommand("tempban").setExecutor(new BanCommand());
-    Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(), this);
+    //Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(), this);
   }
 
   public static Main getInstance() {

@@ -1,24 +1,37 @@
 package net.boybacks.tempbanapi;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
+
 public class Main extends JavaPlugin {
 
-  public static Main main;
+  public static Main INSTANCE;
+  private BufferedReader in;
+  private Bans bans;
 
   @Override
   public void onEnable() {
-    main = this;
+    INSTANCE = this;
+    this.bans = new Bans(this);
+
+    //this.getCommand("tempban").setExecutor(new BanCommand());
+    Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(), this);
   }
 
-  public static ItemStack createItem(Material material, int amount, int data, String displayName) {
-    ItemStack itemStack = new ItemStack(material, amount, (short) data);
-    ItemMeta itemMeta = itemStack.getItemMeta();
-    itemMeta.setDisplayName(displayName);
-    itemStack.setItemMeta(itemMeta);
-    return itemStack;
+  public static Main getInstance() {
+    return INSTANCE;
+  }
+
+  public Bans getBans() {
+    return bans;
   }
 }

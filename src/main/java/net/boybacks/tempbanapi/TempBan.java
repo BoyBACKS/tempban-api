@@ -1,7 +1,5 @@
 package net.boybacks.tempbanapi;
 
-import net.boybacks.releaseschecker.ReleaseChecker;
-import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -11,7 +9,6 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
-import java.util.UUID;
 
 public class TempBan extends JavaPlugin {
 

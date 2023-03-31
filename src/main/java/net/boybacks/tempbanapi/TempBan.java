@@ -2,6 +2,7 @@ package net.boybacks.tempbanapi;
 
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -22,6 +23,16 @@ public class TempBan extends JavaPlugin {
   @Override
   public void onEnable() {
     tempBanInstance = this;
+    Plugin plugin = this;
+    file = new File("plugins/" + plugin.getName() + "/bans.yml");
+    cfg = YamlConfiguration.loadConfiguration(file);
+    try {
+      if(!file.exists()) {
+        file.createNewFile();
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
     //    Plugin plugin = this;
     //
     //    ReleaseChecker.getVersion("v1.0");

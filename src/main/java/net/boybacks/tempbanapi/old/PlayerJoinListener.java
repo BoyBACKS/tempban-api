@@ -1,4 +1,4 @@
-package net.boybacks.tempbanapi;
+package net.boybacks.tempbanapi.old;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;

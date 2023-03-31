@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
+import java.util.UUID;
 
 public class TempBan extends JavaPlugin {
 
@@ -44,8 +45,8 @@ public class TempBan extends JavaPlugin {
   }
 
   public static void banPlayer(Player player, String reason, long seconds) {
-    String uuid = String.valueOf(player.getUniqueId());
-    if (isBanned(uuid)) {
+    UUID uuid = player.getUniqueId();
+    if (isBanned(String.valueOf(uuid))) {
       return;
     }
     long time = 0;
@@ -82,7 +83,7 @@ public class TempBan extends JavaPlugin {
   }
 
   public static String getReason(Player player) {
-    String uuid = String.valueOf(player.getUniqueId());
+    UUID uuid = player.getUniqueId();
     return cfg.getString("Bans." + uuid + ".reason");
   }
 
@@ -96,12 +97,12 @@ public class TempBan extends JavaPlugin {
   }
 
   public static boolean isBanned(Player player) {
-    String uuid = String.valueOf(player.getUniqueId());
+    UUID uuid = player.getUniqueId();
     return cfg.getString("Bans." + uuid + ".reason") != null;
   }
 
   public static long getBanTime(Player player) {
-    String uuid = String.valueOf(player.getUniqueId());
+    UUID uuid = player.getUniqueId();
     return cfg.getLong("Bans." + uuid + ".time");
   }
 

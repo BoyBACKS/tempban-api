@@ -6,7 +6,7 @@
 
     <groupId>net.boybacks</groupId>
     <artifactId>tempban-api</artifactId>
-    <version>0.5.4</version>
+    <version>0.5.5</version>
     <packaging>jar</packaging>
 
     <name>Tempban-Api</name>
@@ -39,7 +39,7 @@
                         </goals>
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
-                            <outputFile>G:\GitHub\###Serwer MCWITHTHEBOIZ 4.0\SuperHardCoreSMP\plugins\${project.name}-${project.version}.jar</outputFile>
+                            <outputFile>G:\GitHub\###Serwer MCWITHTHEBOIZ 4.0\SuperHardCoreSMP\plugins\${project.name}.jar</outputFile>
                         </configuration>
                     </execution>
                 </executions>

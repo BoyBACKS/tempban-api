@@ -19,6 +19,9 @@ public class TempBan extends JavaPlugin {
   private static File file;
   private static YamlConfiguration cfg;
 
+  private static String dateFormat = "HH:mm:ss dd.MM.yyyy";
+  private static String timeZone = "Europe/Warsaw";
+
   private static String banScreen;
 
   @Override
@@ -90,8 +93,8 @@ public class TempBan extends JavaPlugin {
   public static String getUnbanDate(Player player) {
     String uuid = String.valueOf(player.getUniqueId());
     long time = cfg.getLong("Bans." + uuid + ".time");
-    SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
-    sdf.setTimeZone(TimeZone.getTimeZone("Europe/Warsaw"));
+    SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
+    sdf.setTimeZone(TimeZone.getTimeZone(timeZone));
     Date date = new Date(time);
     return sdf.format(date);
   }
@@ -114,6 +117,10 @@ public class TempBan extends JavaPlugin {
     }
   }
 
+  public static void setTimeFormat(String dateFormat, String timeZone) {
+    TempBan.dateFormat = dateFormat;
+    TempBan.timeZone = timeZone;
+  }
   //API METHODS
   private static String getReason(String uuid) {
     return cfg.getString("Bans." + uuid + ".reason");
@@ -121,8 +128,8 @@ public class TempBan extends JavaPlugin {
 
   private static String getUnbanDate(String uuid) {
     long time = cfg.getLong("Bans." + uuid + ".time");
-    SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
-    sdf.setTimeZone(TimeZone.getTimeZone("Europe/Warsaw"));
+    SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
+    sdf.setTimeZone(TimeZone.getTimeZone(timeZone));
     Date date = new Date(time);
     return sdf.format(date);
   }

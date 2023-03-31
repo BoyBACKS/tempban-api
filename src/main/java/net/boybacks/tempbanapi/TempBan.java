@@ -117,10 +117,14 @@ public class TempBan extends JavaPlugin {
     }
   }
 
-  public static void setTimeFormat(String dateFormat, String timeZone) {
-    TempBan.dateFormat = dateFormat;
-    TempBan.timeZone = timeZone;
+  public static String setTimeFormat(String timeZone) {
+    return TempBan.timeZone = timeZone;
   }
+
+  public static String setDateFormat(String dateFormat) {
+    return TempBan.dateFormat = dateFormat;
+  }
+
   //API METHODS
   private static String getReason(String uuid) {
     return cfg.getString("Bans." + uuid + ".reason");

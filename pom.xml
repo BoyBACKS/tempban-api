@@ -6,7 +6,7 @@
 
     <groupId>net.boybacks</groupId>
     <artifactId>tempban-api</artifactId>
-    <version>0.5.5</version>
+    <version>0.5.6</version>
     <packaging>jar</packaging>
 
     <name>Tempban-Api</name>
